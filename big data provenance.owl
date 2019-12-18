@@ -1,0 +1,1938 @@
+@prefix : <http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/administrator/ontologies/2019/3/HP> .
+
+<http://www.semanticweb.org/administrator/ontologies/2019/3/HP> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#derived
+:derived rdf:type owl:ObjectProperty ;
+         rdfs:domain :HFile ;
+         rdfs:range :HFile .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadActivity
+:hadActivity rdf:type owl:ObjectProperty ;
+             rdfs:domain :Influence ;
+             rdfs:range :Activity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadAgent
+:hadAgent rdf:type owl:ObjectProperty ;
+          rdfs:domain :Influence ;
+          rdfs:range :Agent .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadDelegate
+:hadDelegate rdf:type owl:ObjectProperty ;
+             rdfs:domain :Delegation ;
+             rdfs:range :Agent .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadDerivative
+:hadDerivative rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Derivation ;
+               rdfs:range :Entity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadEntity
+:hadEntity rdf:type owl:ObjectProperty ;
+           rdfs:domain :Influence ;
+           rdfs:range :Entity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadGreaterEntity
+:hadGreaterEntity rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Inclusion ;
+                  rdfs:range :Entity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadInformant
+:hadInformant rdf:type owl:ObjectProperty ;
+              rdfs:domain :Communication ;
+              rdfs:range :Activity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadInformed
+:hadInformed rdf:type owl:ObjectProperty ;
+             rdfs:domain :Communication ;
+             rdfs:range :Activity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadInput
+:hadInput rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadLowerEntity
+:hadLowerEntity rdf:type owl:ObjectProperty ;
+                rdfs:domain :Coexistence ;
+                rdfs:range :Entity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadOutput
+:hadOutput rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadProcessor
+:hadProcessor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadResponsible
+:hadResponsible rdf:type owl:ObjectProperty ;
+                rdfs:domain :Delegation ;
+                rdfs:range :Agent .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadSmallerEntity
+:hadSmallerEntity rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Inclusion ;
+                  rdfs:range :Entity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadSrc
+:hadSrc rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdfs:domain :Derivation ;
+        rdfs:range :Entity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadStreaming
+:hadStreaming rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadTrigger
+:hadTrigger rdf:type owl:ObjectProperty ;
+            rdfs:domain :End ,
+                        :Start ;
+            rdfs:range :Entity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadUpperEntity
+:hadUpperEntity rdf:type owl:ObjectProperty ;
+                rdfs:domain :Coexistence ;
+                rdfs:range :Entity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadUser
+:hadUser rdf:type owl:ObjectProperty ;
+         rdfs:domain :Activity ,
+                     :FileData ;
+         rdfs:range :User .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hadWorker
+:hadWorker rdf:type owl:ObjectProperty ;
+           rdfs:range :TaskWorker .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hasParent
+:hasParent rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :HDirectory ,
+                       :HFile ;
+           rdfs:range :HDirectory .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#hasSon
+:hasSon rdf:type owl:ObjectProperty ;
+        rdfs:domain :HDirectory ;
+        rdfs:range :HDirectory ,
+                   :HFile .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#involved
+:involved rdf:type owl:ObjectProperty ;
+          rdfs:domain :Activity ;
+          rdfs:range :User .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#IP
+:IP rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#atTime
+:atTime rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdfs:domain :FileDataOperation ;
+        rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#atime
+:atime rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :fileAttr ;
+       rdfs:range xsd:long .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#blockID
+:blockID rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :fileAttr ;
+         rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#bootstrapServerList
+:bootstrapServerList rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :kafkaAttr ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#brokerList
+:brokerList rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :kafkaAttr ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#containerAttr
+:containerAttr rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#containerID
+:containerID rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :containerAttr ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#ctime
+:ctime rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :fileAttr ;
+       rdfs:range xsd:long .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#dtime
+:dtime rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :fileAttr ;
+       rdfs:range xsd:long .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#endedTime
+:endedTime rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#fileAttr
+:fileAttr rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#filePath
+:filePath rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :fileAttr ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#fileType
+:fileType rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :fileAttr ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#id
+:id rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#kafkaAttr
+:kafkaAttr rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#mtime
+:mtime rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :fileAttr ;
+       rdfs:range xsd:long .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#parameter
+:parameter rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Activity ;
+           rdfs:range xsd:string ;
+           rdfs:comment "Activity parameters are related to the semantics of the activity, such as the activity of modifying the permission, the parameter is the specific permission setting, the activity of modifying the location, and the parameter is the specific location setting." .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#permission
+:permission rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#port
+:port rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#proto
+:proto rdf:type owl:DatatypeProperty ;
+       rdfs:range xsd:string ;
+       rdfs:comment "the proto used by the file operation, such as rpc, webhdfs and so on" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#replication
+:replication rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#size
+:size rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :fileAttr ;
+      rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#startStatus
+:startStatus rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :containerAttr ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#startedTime
+:startedTime rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#status
+:status rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdfs:range xsd:string ;
+        rdfs:comment "to show the execution  result of a file operation or a job, succeeded or failed" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#stopStatus
+:stopStatus rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :containerAttr ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#type
+:type rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#zookeeperList
+:zookeeperList rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :kafkaAttr ;
+               rdfs:range xsd:string .
+
+
+###  http://www.w3.org/2002/07/owl#topDataProperty
+owl:topDataProperty rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Activity
+:Activity rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :id ;
+                            owl:someValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :parameter ;
+                            owl:someValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :IP ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :status ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#ActivityInfluence
+:ActivityInfluence rdf:type owl:Class ;
+                   rdfs:subClassOf :Influence .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Agent
+:Agent rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :id ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :name ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#AgentInfluence
+:AgentInfluence rdf:type owl:Class ;
+                rdfs:subClassOf :Influence .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Aggregation
+:Aggregation rdf:type owl:Class ;
+             rdfs:subClassOf :DataPreparation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Archive
+:Archive rdf:type owl:Class ;
+         rdfs:subClassOf :RowCombinationOperation ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :atTime ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:dateTime
+                         ] ;
+         rdfs:comment "a approach to reducing the number of files in partitions, Hive only" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Association
+:Association rdf:type owl:Class ;
+             rdfs:subClassOf :AgentInfluence ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hadActivity ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Activity
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hadAgent ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Agent
+                             ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Attribution
+:Attribution rdf:type owl:Class ;
+             rdfs:subClassOf :AgentInfluence ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hadAgent ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Agent
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hadEntity ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Entity
+                             ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#AvroStream
+:AvroStream rdf:type owl:Class ;
+            rdfs:subClassOf :NetworkStream .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Cleaning
+:Cleaning rdf:type owl:Class ;
+          rdfs:subClassOf :DataPreparation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Coexistence
+:Coexistence rdf:type owl:Class ;
+             rdfs:subClassOf :EntityInfluence ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hadLowerEntity ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Entity
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hadUpperEntity ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Entity
+                             ] ;
+             rdfs:comment """Indicates the coexistence of data with different storage formats or in different storage system, such as the coexistence of Hive tables and HDFS files, and the coexistence of HDFS files with the underlying Linux system block files.
+Due to the variety of data leakage methods, the extalbishment of data coexistence relationship is very important for data supervision.""" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#ColCombinationOperation
+:ColCombinationOperation rdf:type owl:Class ;
+                         rdfs:subClassOf :IndexedDataOperation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Column
+:Column rdf:type owl:Class ;
+        rdfs:subClassOf :IndexedData .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#ColumnCombination
+:ColumnCombination rdf:type owl:Class ;
+                   rdfs:subClassOf :IndexedData ;
+                   rdfs:comment "column combinations physically colocate a set of columns and their values, often for performance reasons, such as HBase column family" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#ColumnDB
+:ColumnDB rdf:type owl:Class ;
+          rdfs:subClassOf :NoSQL .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#ColumnOperation
+:ColumnOperation rdf:type owl:Class ;
+                 rdfs:subClassOf :IndexedDataOperation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Communication
+:Communication rdf:type owl:Class ;
+               rdfs:subClassOf :ActivityInfluence ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hadInformant ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :Activity
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hadInformed ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :Activity
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :atTime ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Compression
+:Compression rdf:type owl:Class ;
+             rdfs:subClassOf :FileDataOperation ,
+                             :RowCombinationOperation ,
+                             :TableOperation ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :endedTime ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:dateTime
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :startedTime ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:dateTime
+                             ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Concatenation
+:Concatenation rdf:type owl:Class ;
+               rdfs:subClassOf :RowCombinationOperation ,
+                               :TableOperation ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :atTime ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ;
+               rdfs:comment "If the table or partition contains many small files, then concatenate them into larger files" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Copy
+:Copy rdf:type owl:Class ;
+      rdfs:subClassOf :FileDataOperation ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :endedTime ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:dateTime
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :startedTime ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:dateTime
+                      ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Creation
+:Creation rdf:type owl:Class ;
+          rdfs:subClassOf :ColCombinationOperation ,
+                          :ColumnOperation ,
+                          :DatabaseOperation ,
+                          :FileDataOperation ,
+                          :MessageOrganization ,
+                          :RowCombinationOperation ,
+                          :StreamingDataOperation ,
+                          :TableOperation ,
+                          :ViewOperation ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :endedTime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :startedTime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] ;
+          rdfs:comment "Create message carrier, such as Kafka topic" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DFSFile
+:DFSFile rdf:type owl:Class ;
+         rdfs:subClassOf :File .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Data
+:Data rdf:type owl:Class ;
+      rdfs:subClassOf :Entity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataActivity
+:DataActivity rdf:type owl:Class ;
+              rdfs:subClassOf :Activity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataAnalysis
+:DataAnalysis rdf:type owl:Class ;
+              rdfs:subClassOf :DataUsage ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :endedTime ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:dateTime
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :startedTime ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:dateTime
+                              ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataCollection
+:DataCollection rdf:type owl:Class ;
+                rdfs:subClassOf :DataActivity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataCollector
+:DataCollector rdf:type owl:Class ;
+               rdfs:subClassOf :SoftwareAgent .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataConsumer
+:DataConsumer rdf:type owl:Class ;
+              rdfs:subClassOf :Group ,
+                              :SoftwareAgent ,
+                              :User .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataOrganization
+:DataOrganization rdf:type owl:Class ;
+                  rdfs:subClassOf :DataActivity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataPreparation
+:DataPreparation rdf:type owl:Class ;
+                 rdfs:subClassOf :DataUsage .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataProducer
+:DataProducer rdf:type owl:Class ;
+              rdfs:subClassOf :Group ,
+                              :SoftwareAgent ,
+                              :User .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataTypeChange
+:DataTypeChange rdf:type owl:Class ;
+                rdfs:subClassOf :ColumnOperation ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :atTime ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataUsage
+:DataUsage rdf:type owl:Class ;
+           rdfs:subClassOf :DataActivity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataVisualization
+:DataVisualization rdf:type owl:Class ;
+                   rdfs:subClassOf :DataUsage .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataWarehouse
+:DataWarehouse rdf:type owl:Class ;
+               rdfs:subClassOf :IndexedData .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Database
+:Database rdf:type owl:Class ;
+          rdfs:subClassOf :IndexedData .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DatabaseOperation
+:DatabaseOperation rdf:type owl:Class ;
+                   rdfs:subClassOf :IndexedDataOperation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Delegation
+:Delegation rdf:type owl:Class ;
+            rdfs:subClassOf :AgentInfluence ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hadActivity ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Activity
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hadDelegate ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Agent
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hadResponsible ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Agent
+                            ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Deletion
+:Deletion rdf:type owl:Class ;
+          rdfs:subClassOf :ColCombinationOperation ,
+                          :ColumnOperation ,
+                          :DatabaseOperation ,
+                          :FileDataOperation ,
+                          :MessageOrganization ,
+                          :RowCombinationOperation ,
+                          :RowOperation ,
+                          :StreamingDataOperation ,
+                          :TableOperation ,
+                          :ViewOperation ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :atTime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] ;
+          rdfs:comment "delete message carrier" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Derivation
+:Derivation rdf:type owl:Class ;
+            rdfs:subClassOf :EntityInfluence ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hadSrc ;
+                              owl:someValuesFrom :Entity
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hadActivity ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Activity
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hadDerivative ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Entity
+                            ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DocumentDB
+:DocumentDB rdf:type owl:Class ;
+            rdfs:subClassOf :NoSQL .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#E4Directory
+:E4Directory rdf:type owl:Class ;
+             rdfs:subClassOf :Ext4File .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#E4File
+:E4File rdf:type owl:Class ;
+        rdfs:subClassOf :Ext4File .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Encryption
+:Encryption rdf:type owl:Class ;
+            rdfs:subClassOf :FileDataOperation ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :endedTime ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :startedTime ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#End
+:End rdf:type owl:Class ;
+     rdfs:subClassOf :EntityInfluence ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hadActivity ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass :Activity
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hadTrigger ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass :Entity
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :atTime ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:dateTime
+                     ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Entity
+:Entity rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :id ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#EntityInfluence
+:EntityInfluence rdf:type owl:Class ;
+                 rdfs:subClassOf :Influence .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Execution
+:Execution rdf:type owl:Class ;
+           rdfs:subClassOf :FileDataOperation ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :endedTime ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:dateTime
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :startedTime ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:dateTime
+                           ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Export
+:Export rdf:type owl:Class ;
+        rdfs:subClassOf :RowCombinationOperation ,
+                        :TableOperation ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :endedTime ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :startedTime ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Ext4File
+:Ext4File rdf:type owl:Class ;
+          rdfs:subClassOf :LocalFile ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :atime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:long
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :blockID ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:integer
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :ctime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:long
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :dtime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:long
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :filePath ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :fileType ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :mtime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:long
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :name ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :permission ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :size ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:integer
+                          ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#File
+:File rdf:type owl:Class ;
+      rdfs:subClassOf :FileData .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#FileBasedAnalysis
+:FileBasedAnalysis rdf:type owl:Class ;
+                   rdfs:subClassOf :DataAnalysis .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#FileData
+:FileData rdf:type owl:Class ;
+          rdfs:subClassOf :Data .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#FileDataOperation
+:FileDataOperation rdf:type owl:Class ;
+                   rdfs:subClassOf :DataOrganization ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :proto ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#FileStream
+:FileStream rdf:type owl:Class ;
+            rdfs:subClassOf :Stream .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#FileStreamCollection
+:FileStreamCollection rdf:type owl:Class ;
+                      rdfs:subClassOf :StreamingDataCollection .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#FlinkJob
+:FlinkJob rdf:type owl:Class ;
+          rdfs:subClassOf :Job .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Flume
+:Flume rdf:type owl:Class ;
+       rdfs:subClassOf :StreamingDataCollector .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Generation
+:Generation rdf:type owl:Class ;
+            rdfs:subClassOf :ActivityInfluence ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hadActivity ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Activity
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hadEntity ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Entity
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :atTime ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#GraphDB
+:GraphDB rdf:type owl:Class ;
+         rdfs:subClassOf :NoSQL .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Group
+:Group rdf:type owl:Class ;
+       rdfs:subClassOf :Agent .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HBaseColumnFamily
+:HBaseColumnFamily rdf:type owl:Class ;
+                   rdfs:subClassOf :ColumnCombination .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HBaseDB
+:HBaseDB rdf:type owl:Class ;
+         rdfs:subClassOf :ColumnDB .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HBaseRegion
+:HBaseRegion rdf:type owl:Class ;
+             rdfs:subClassOf :RowCombination .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HBaseTable
+:HBaseTable rdf:type owl:Class ;
+            rdfs:subClassOf :Table .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HDFSFile
+:HDFSFile rdf:type owl:Class ;
+          rdfs:subClassOf :DFSFile ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :filePath ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :fileType ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :name ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :permission ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :size ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:integer
+                          ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HDirectory
+:HDirectory rdf:type owl:Class ;
+            rdfs:subClassOf :HDFSFile ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :mtime ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:long
+                            ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HFile
+:HFile rdf:type owl:Class ;
+       rdfs:subClassOf :HDFSFile ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :blockID ;
+                         owl:someValuesFrom xsd:integer
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :atime ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:long
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :mtime ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:long
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :replication ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:integer
+                       ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HTTPStream
+:HTTPStream rdf:type owl:Class ;
+            rdfs:subClassOf :NetworkStream .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HiveBucket
+:HiveBucket rdf:type owl:Class ;
+            rdfs:subClassOf :RowCombination .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HiveDW
+:HiveDW rdf:type owl:Class ;
+        rdfs:subClassOf :DataWarehouse .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HiveLogicalView
+:HiveLogicalView rdf:type owl:Class ;
+                 rdfs:subClassOf :LogicalView .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HiveMaterializedView
+:HiveMaterializedView rdf:type owl:Class ;
+                      rdfs:subClassOf :MaterializedView .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HivePartition
+:HivePartition rdf:type owl:Class ;
+               rdfs:subClassOf :RowCombination .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HiveTable
+:HiveTable rdf:type owl:Class ;
+           rdfs:subClassOf :Table .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Import
+:Import rdf:type owl:Class ;
+        rdfs:subClassOf :RowCombinationOperation ,
+                        :TableOperation ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :endedTime ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :startedTime ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Inclusion
+:Inclusion rdf:type owl:Class ;
+           rdfs:subClassOf :EntityInfluence ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hadGreaterEntity ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Entity
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hadSmallerEntity ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Entity
+                           ] ;
+           rdfs:comment "Represents the inclusion relationship between data entities of different granularities or different layers" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#IndexedData
+:IndexedData rdf:type owl:Class ;
+             rdfs:subClassOf :Data .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#IndexedDataBasedAnalysis
+:IndexedDataBasedAnalysis rdf:type owl:Class ;
+                          rdfs:subClassOf :DataAnalysis ;
+                          rdfs:comment "data warehouse based batch process, like Hive SQL" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#IndexedDataOperation
+:IndexedDataOperation rdf:type owl:Class ;
+                      rdfs:subClassOf :DataOrganization .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Influence
+:Influence rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :id ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Insert
+:Insert rdf:type owl:Class ;
+        rdfs:subClassOf :RowOperation ,
+                        :TableOperation ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :atTime ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Invalidation
+:Invalidation rdf:type owl:Class ;
+              rdfs:subClassOf :ActivityInfluence ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hadActivity ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :Activity
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hadEntity ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :Entity
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :atTime ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:dateTime
+                              ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Job
+:Job rdf:type owl:Class ;
+     rdfs:subClassOf :Entity ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :parameter ;
+                       owl:someValuesFrom xsd:string
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :endedTime ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:dateTime
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :name ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:string
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :startedTime ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:dateTime
+                     ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#JobActivity
+:JobActivity rdf:type owl:Class ;
+             rdfs:subClassOf :Activity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#JobMaster
+:JobMaster rdf:type owl:Class ;
+           rdfs:subClassOf :SoftwareAgent ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :IP ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :endedTime ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:dateTime
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :startedTime ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:dateTime
+                           ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#JobSubmission
+:JobSubmission rdf:type owl:Class ;
+               rdfs:subClassOf :JobActivity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#JobSubmitter
+:JobSubmitter rdf:type owl:Class ;
+              rdfs:subClassOf :Group ,
+                              :SoftwareAgent ,
+                              :User .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Kafka
+:Kafka rdf:type owl:Class ;
+       rdfs:subClassOf :StreamingDataCollector ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :bootstrapServerList ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :brokerList ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :zookeeperList ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#KafkaMessage
+:KafkaMessage rdf:type owl:Class ;
+              rdfs:subClassOf :Message .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#KafkaPartition
+:KafkaPartition rdf:type owl:Class ;
+                rdfs:subClassOf :KafkaMessage ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :replication ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:integer
+                                ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#KafkaRecord
+:KafkaRecord rdf:type owl:Class ;
+             rdfs:subClassOf :KafkaMessage ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :atime ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#KafkaStream
+:KafkaStream rdf:type owl:Class ;
+             rdfs:subClassOf :Stream ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hadSrc ;
+                               owl:someValuesFrom :KafkaMessage
+                             ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#KafkaStreamCollection
+:KafkaStreamCollection rdf:type owl:Class ;
+                       rdfs:subClassOf :StreamingDataCollection .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#KafkaTopic
+:KafkaTopic rdf:type owl:Class ;
+            rdfs:subClassOf :KafkaMessage ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :name ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#KeyValueDB
+:KeyValueDB rdf:type owl:Class ;
+            rdfs:subClassOf :NoSQL .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#List
+:List rdf:type owl:Class ;
+      rdfs:subClassOf :ColumnOperation ,
+                      :DatabaseOperation ,
+                      :FileDataOperation ,
+                      :MessageOrganization ,
+                      :RowCombinationOperation ,
+                      :TableOperation ,
+                      :ViewOperation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#LocalFile
+:LocalFile rdf:type owl:Class ;
+           rdfs:subClassOf :File .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#LogicalView
+:LogicalView rdf:type owl:Class ;
+             rdfs:subClassOf :View .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#MapReduceJob
+:MapReduceJob rdf:type owl:Class ;
+              rdfs:subClassOf :Job .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#MaterializedView
+:MaterializedView rdf:type owl:Class ;
+                  rdfs:subClassOf :View .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Merge
+:Merge rdf:type owl:Class ;
+       rdfs:subClassOf :RowOperation ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :atTime ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:dateTime
+                       ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Message
+:Message rdf:type owl:Class ;
+         rdfs:subClassOf :Data .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#MessageOrganization
+:MessageOrganization rdf:type owl:Class ;
+                     rdfs:subClassOf :DataOrganization .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Mkdir
+:Mkdir rdf:type owl:Class ;
+       rdfs:subClassOf :FileDataOperation ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :atTime ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:dateTime
+                       ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Move
+:Move rdf:type owl:Class ;
+      rdfs:subClassOf :FileDataOperation ,
+                      :RowCombinationOperation ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :endedTime ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:dateTime
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :startedTime ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:dateTime
+                      ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#NetCatStream
+:NetCatStream rdf:type owl:Class ;
+              rdfs:subClassOf :NetworkStream .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#NetCatTCPStream
+:NetCatTCPStream rdf:type owl:Class ;
+                 rdfs:subClassOf :NetCatStream .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#NetCatUDPStream
+:NetCatUDPStream rdf:type owl:Class ;
+                 rdfs:subClassOf :NetCatStream .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#NetworkObject
+:NetworkObject rdf:type owl:Class ;
+               rdfs:subClassOf :Entity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#NetworkSource
+:NetworkSource rdf:type owl:Class ;
+               rdfs:subClassOf :NetworkObject ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :port ;
+                                 owl:someValuesFrom xsd:integer
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :IP ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#NetworkStream
+:NetworkStream rdf:type owl:Class ;
+               rdfs:subClassOf :Stream .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#NetworkStreamCollection
+:NetworkStreamCollection rdf:type owl:Class ;
+                         rdfs:subClassOf :StreamingDataCollection .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#NoSQL
+:NoSQL rdf:type owl:Class ;
+       rdfs:subClassOf :Database .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#OutlierRemoval
+:OutlierRemoval rdf:type owl:Class ;
+                rdfs:subClassOf :DataPreparation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#PositionChange
+:PositionChange rdf:type owl:Class ;
+                rdfs:subClassOf :ColumnOperation ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :atTime ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ;
+                rdfs:comment "Adjust the position of column in the table" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Read
+:Read rdf:type owl:Class ;
+      rdfs:subClassOf :FileDataOperation ,
+                      :MessageOrganization ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :atTime ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:dateTime
+                      ] ;
+      rdfs:comment "In MessageOrganization, \"Read\" represents reading messages from the existing message carrier" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Receive
+:Receive rdf:type owl:Class ;
+         rdfs:subClassOf :StreamingDataOperation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Record
+:Record rdf:type owl:Class ;
+        rdfs:subClassOf :FileData .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#RelationalDB
+:RelationalDB rdf:type owl:Class ;
+              rdfs:subClassOf :Database .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Rename
+:Rename rdf:type owl:Class ;
+        rdfs:subClassOf :ColumnOperation ,
+                        :FileDataOperation ,
+                        :RowCombinationOperation ,
+                        :TableOperation ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :atTime ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Replace
+:Replace rdf:type owl:Class ;
+         rdfs:subClassOf :ColumnOperation ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :atTime ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:dateTime
+                         ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Row
+:Row rdf:type owl:Class ;
+     rdfs:subClassOf :IndexedData .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#RowCombination
+:RowCombination rdf:type owl:Class ;
+                rdfs:subClassOf :IndexedData ;
+                rdfs:comment "In order to optimize the query performance, the database uses certain strategies to partition and combine rows." .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#RowCombinationOperation
+:RowCombinationOperation rdf:type owl:Class ;
+                         rdfs:subClassOf :IndexedDataOperation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#RowOperation
+:RowOperation rdf:type owl:Class ;
+              rdfs:subClassOf :IndexedDataOperation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Search
+:Search rdf:type owl:Class ;
+        rdfs:subClassOf :FileDataOperation ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :atTime ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ;
+        rdfs:comment "In HDFS operations, Search is represented as a series of listStatus" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SetConstraints
+:SetConstraints rdf:type owl:Class ;
+                rdfs:subClassOf :TableOperation ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :atTime ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SetCustomProperties
+:SetCustomProperties rdf:type owl:Class ;
+                     rdfs:subClassOf :DatabaseOperation ,
+                                     :MessageOrganization ,
+                                     :TableOperation ,
+                                     :ViewOperation ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :atTime ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:dateTime
+                                     ] ;
+                     rdfs:comment "Users can customize attributes in addition to attributes supported by database such as location, permission, etc." .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SetFileFormat
+:SetFileFormat rdf:type owl:Class ;
+               rdfs:subClassOf :RowCombinationOperation ,
+                               :TableOperation ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :atTime ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SetLocation
+:SetLocation rdf:type owl:Class ;
+             rdfs:subClassOf :DatabaseOperation ,
+                             :RowCombinationOperation ,
+                             :TableOperation ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :atTime ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:dateTime
+                             ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SetOwner
+:SetOwner rdf:type owl:Class ;
+          rdfs:subClassOf :DatabaseOperation ,
+                          :FileDataOperation ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :atTime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SetPermission
+:SetPermission rdf:type owl:Class ;
+               rdfs:subClassOf :FileDataOperation ,
+                               :RowCombinationOperation ,
+                               :TableOperation ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :atTime ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SetReplication
+:SetReplication rdf:type owl:Class ;
+                rdfs:subClassOf :FileDataOperation ,
+                                :MessageOrganization ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :atTime ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SetRetention
+:SetRetention rdf:type owl:Class ;
+              rdfs:subClassOf :RowCombinationOperation ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :atTime ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:dateTime
+                              ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SoftwareAgent
+:SoftwareAgent rdf:type owl:Class ;
+               rdfs:subClassOf :Agent .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SparkBatchJob
+:SparkBatchJob rdf:type owl:Class ;
+               rdfs:subClassOf :SparkJob .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SparkJob
+:SparkJob rdf:type owl:Class ;
+          rdfs:subClassOf :Job .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SparkStreamingJob
+:SparkStreamingJob rdf:type owl:Class ;
+                   rdfs:subClassOf :SparkJob .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Standardization
+:Standardization rdf:type owl:Class ;
+                 rdfs:subClassOf :DataPreparation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Start
+:Start rdf:type owl:Class ;
+       rdfs:subClassOf :EntityInfluence ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hadActivity ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Activity
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hadTrigger ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Entity
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :atTime ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:dateTime
+                       ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Statistics
+:Statistics rdf:type owl:Class ;
+            rdfs:subClassOf :ColumnOperation ,
+                            :RowCombinationOperation ,
+                            :TableOperation ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :atTime ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ;
+            rdfs:comment "gathering statistics information about a table, partition, or column" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#StormJob
+:StormJob rdf:type owl:Class ;
+          rdfs:subClassOf :Job .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Stream
+:Stream rdf:type owl:Class ;
+        rdfs:subClassOf :StreamingData .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#StreamBasedAnalysis
+:StreamBasedAnalysis rdf:type owl:Class ;
+                     rdfs:subClassOf :DataAnalysis .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#StreamTuple
+:StreamTuple rdf:type owl:Class ;
+             rdfs:subClassOf :StreamingData .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#StreamWindow
+:StreamWindow rdf:type owl:Class ;
+              rdfs:subClassOf :StreamingData ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :endedTime ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:dateTime
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :startedTime ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:dateTime
+                              ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#StreamingData
+:StreamingData rdf:type owl:Class ;
+               rdfs:subClassOf :Data .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#StreamingDataCollection
+:StreamingDataCollection rdf:type owl:Class ;
+                         rdfs:subClassOf :DataCollection ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :endedTime ;
+                                           owl:someValuesFrom xsd:dateTime
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :startedTime ;
+                                           owl:someValuesFrom xsd:dateTime
+                                         ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#StreamingDataCollector
+:StreamingDataCollector rdf:type owl:Class ;
+                        rdfs:subClassOf :DataCollector .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#StreamingDataOperation
+:StreamingDataOperation rdf:type owl:Class ;
+                        rdfs:subClassOf :DataOrganization .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SyslogStream
+:SyslogStream rdf:type owl:Class ;
+              rdfs:subClassOf :NetworkStream .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SyslogTCPStream
+:SyslogTCPStream rdf:type owl:Class ;
+                 rdfs:subClassOf :SyslogStream .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#SyslogUDPStream
+:SyslogUDPStream rdf:type owl:Class ;
+                 rdfs:subClassOf :SyslogStream .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Table
+:Table rdf:type owl:Class ;
+       rdfs:subClassOf :IndexedData .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#TableOperation
+:TableOperation rdf:type owl:Class ;
+                rdfs:subClassOf :IndexedDataOperation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Task
+:Task rdf:type owl:Class ;
+      rdfs:subClassOf :Entity ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :endedTime ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:dateTime
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :startedTime ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:dateTime
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :type ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#TaskAssignment
+:TaskAssignment rdf:type owl:Class ;
+                rdfs:subClassOf :JobActivity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#TaskExecution
+:TaskExecution rdf:type owl:Class ;
+               rdfs:subClassOf :JobActivity .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#TaskWorker
+:TaskWorker rdf:type owl:Class ;
+            rdfs:subClassOf :SoftwareAgent ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :IP ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :endedTime ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :startedTime ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#ThriftStream
+:ThriftStream rdf:type owl:Class ;
+              rdfs:subClassOf :NetworkStream .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Transfer
+:Transfer rdf:type owl:Class ;
+          rdfs:subClassOf :FileDataOperation ,
+                          :StreamingDataOperation ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :endedTime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :startedTime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] ;
+          rdfs:comment "Representing the network transfer of files, such as data transfer between DataNodes" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Transform
+:Transform rdf:type owl:Class ;
+           rdfs:subClassOf :StreamingDataOperation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Truncation
+:Truncation rdf:type owl:Class ;
+            rdfs:subClassOf :TableOperation ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :atTime ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Unarchive
+:Unarchive rdf:type owl:Class ;
+           rdfs:subClassOf :RowCombinationOperation ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :atTime ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:dateTime
+                           ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Update
+:Update rdf:type owl:Class ;
+        rdfs:subClassOf :ColCombinationOperation ,
+                        :RowOperation ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :atTime ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Usage
+:Usage rdf:type owl:Class ;
+       rdfs:subClassOf :EntityInfluence ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hadActivity ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Activity
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hadEntity ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Entity
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :atTime ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:dateTime
+                       ] .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#User
+:User rdf:type owl:Class ;
+      rdfs:subClassOf :Agent .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Validation
+:Validation rdf:type owl:Class ;
+            rdfs:subClassOf :DataPreparation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#View
+:View rdf:type owl:Class ;
+      rdfs:subClassOf :IndexedData .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#ViewOperation
+:ViewOperation rdf:type owl:Class ;
+               rdfs:subClassOf :IndexedDataOperation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Write
+:Write rdf:type owl:Class ;
+       rdfs:subClassOf :FileDataOperation ,
+                       :MessageOrganization ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :endedTime ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:dateTime
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :startedTime ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:dateTime
+                       ] ;
+       rdfs:comment "In MessageOrganization, \"Write\" represents writing new messages into the existing message carrier" .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#usage
+:usage rdf:type owl:Class ;
+       rdfs:subClassOf :DatabaseOperation ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :atTime ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:dateTime
+                       ] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
