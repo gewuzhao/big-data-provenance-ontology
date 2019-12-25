@@ -159,6 +159,11 @@
 #    Data properties
 #################################################################
 
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#ID
+:ID rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#IP
 :IP rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf owl:topDataProperty ;
@@ -240,11 +245,6 @@
           rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#id
-:id rdf:type owl:DatatypeProperty ;
-    rdfs:range xsd:string .
-
-
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#kafkaAttr
 :kafkaAttr rdf:type owl:DatatypeProperty .
 
@@ -279,10 +279,10 @@
       rdfs:range xsd:integer .
 
 
-###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#proto
-:proto rdf:type owl:DatatypeProperty ;
-       rdfs:range xsd:string ;
-       rdfs:comment "the proto used by the file operation, such as rpc, webhdfs and so on" .
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#protocol
+:protocol rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:string ;
+          rdfs:comment "the proto used by the file operation, such as rpc, webhdfs and so on" .
 
 
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#replication
@@ -344,7 +344,7 @@ owl:topDataProperty rdfs:range xsd:string .
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Activity
 :Activity rdf:type owl:Class ;
           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty :id ;
+                            owl:onProperty :ID ;
                             owl:someValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
@@ -371,7 +371,7 @@ owl:topDataProperty rdfs:range xsd:string .
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Agent
 :Agent rdf:type owl:Class ;
        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                         owl:onProperty :id ;
+                         owl:onProperty :ID ;
                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                          owl:onDataRange xsd:string
                        ] ,
@@ -785,7 +785,7 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Entity
 :Entity rdf:type owl:Class ;
         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                          owl:onProperty :id ;
+                          owl:onProperty :ID ;
                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                           owl:onDataRange xsd:string
                         ] .
@@ -901,7 +901,7 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
 :FileDataOperation rdf:type owl:Class ;
                    rdfs:subClassOf :DataOrganization ,
                                    [ rdf:type owl:Restriction ;
-                                     owl:onProperty :proto ;
+                                     owl:onProperty :protocol ;
                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                      owl:onDataRange xsd:string
                                    ] .
@@ -1127,10 +1127,11 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Influence
 :Influence rdf:type owl:Class ;
            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                             owl:onProperty :id ;
+                             owl:onProperty :ID ;
                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onDataRange xsd:string
-                           ] .
+                           ] ;
+           rdfs:comment "The id of Influence is optional" .
 
 
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Insert
@@ -1391,23 +1392,28 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                  rdfs:subClassOf :NetCatStream .
 
 
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#NetworkAddress
+:NetworkAddress rdf:type owl:Class ;
+                rdfs:subClassOf :NetworkObject ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :port ;
+                                  owl:someValuesFrom xsd:integer
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :IP ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:string
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :protocol ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:string
+                                ] .
+
+
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#NetworkObject
 :NetworkObject rdf:type owl:Class ;
                rdfs:subClassOf :Entity .
-
-
-###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#NetworkSource
-:NetworkSource rdf:type owl:Class ;
-               rdfs:subClassOf :NetworkObject ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :port ;
-                                 owl:someValuesFrom xsd:integer
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IP ;
-                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] .
 
 
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#NetworkStream
