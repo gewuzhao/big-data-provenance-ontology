@@ -721,11 +721,6 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                               owl:someValuesFrom :Entity
                             ] ,
                             [ rdf:type owl:Restriction ;
-                              owl:onProperty :hadActivity ;
-                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onClass :Activity
-                            ] ,
-                            [ rdf:type owl:Restriction ;
                               owl:onProperty :hadDerivative ;
                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                               owl:onClass :Entity
@@ -774,11 +769,6 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                        owl:onProperty :hadTrigger ;
                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                        owl:onClass :Entity
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :atTime ;
-                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                       owl:onDataRange xsd:dateTime
                      ] .
 
 
@@ -1657,11 +1647,6 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                          owl:onProperty :hadTrigger ;
                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                          owl:onClass :Entity
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :atTime ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onDataRange xsd:dateTime
                        ] .
 
 
@@ -1886,11 +1871,6 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                          owl:onProperty :hadEntity ;
                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                          owl:onClass :Entity
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :atTime ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onDataRange xsd:dateTime
                        ] .
 
 
