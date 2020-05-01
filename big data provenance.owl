@@ -4,9 +4,9 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/administrator/ontologies/2019/3/HP> .
+@base <http://www.semanticweb.org/administrator/ontologies/2019/3/BDPM> .
 
-<http://www.semanticweb.org/administrator/ontologies/2019/3/HP> rdf:type owl:Ontology .
+<http://www.semanticweb.org/administrator/ontologies/2019/3/BDPM> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
@@ -245,6 +245,20 @@
           rdfs:range xsd:string .
 
 
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#finalStatus
+:finalStatus rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#input
+:input rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :parameter .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#jobType
+:jobType rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :type .
+
+
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#kafkaAttr
 :kafkaAttr rdf:type owl:DatatypeProperty .
 
@@ -259,6 +273,11 @@
 :name rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf owl:topDataProperty ;
       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#output
+:output rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :parameter .
 
 
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#parameter
@@ -322,6 +341,11 @@
             rdfs:range xsd:string .
 
 
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#taskType
+:taskType rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :type .
+
+
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#type
 :type rdf:type owl:DatatypeProperty ;
       rdfs:range xsd:string .
@@ -341,6 +365,16 @@ owl:topDataProperty rdfs:range xsd:string .
 #    Classes
 #################################################################
 
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/BDPM#GetFileChecksum
+:GetFileChecksum rdf:type owl:Class ;
+                 rdfs:subClassOf :FileDataOperation .
+
+
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/BDPM#GetFileInfo
+:GetFileInfo rdf:type owl:Class ;
+             rdfs:subClassOf :FileDataOperation .
+
+
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Activity
 :Activity rdf:type owl:Class ;
           rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -352,13 +386,13 @@ owl:topDataProperty rdfs:range xsd:string .
                             owl:someValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty :IP ;
+                            owl:onProperty :status ;
                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onDataRange xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty :status ;
-                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onProperty :IP ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onDataRange xsd:string
                           ] .
 
@@ -377,7 +411,7 @@ owl:topDataProperty rdfs:range xsd:string .
                        ] ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :name ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                          owl:onDataRange xsd:string
                        ] .
 
@@ -621,6 +655,33 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                               :User .
 
 
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataCorrupter
+:DataCorrupter rdf:type owl:Class ;
+               rdfs:subClassOf :SoftwareAgent ,
+                               :User ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :IP ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :endedTime ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :startedTime ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :status ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ;
+               rdfs:comment "Data corrupter refers to the agent who performed data corruption activities, such as data leakage, data tampering, etc." .
+
+
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#DataOrganization
 :DataOrganization rdf:type owl:Class ;
                   rdfs:subClassOf :DataActivity .
@@ -739,7 +800,12 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
 
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#E4File
 :E4File rdf:type owl:Class ;
-        rdfs:subClassOf :Ext4File .
+        rdfs:subClassOf :Ext4File ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :size ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:integer
+                        ] .
 
 
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Encryption
@@ -826,11 +892,6 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                             owl:onDataRange xsd:long
                           ] ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty :blockID ;
-                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:integer
-                          ] ,
-                          [ rdf:type owl:Restriction ;
                             owl:onProperty :ctime ;
                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onDataRange xsd:long
@@ -859,16 +920,6 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                             owl:onProperty :name ;
                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onDataRange xsd:string
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :permission ;
-                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:string
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :size ;
-                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:integer
                           ] .
 
 
@@ -971,6 +1022,16 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
 :HDFSFile rdf:type owl:Class ;
           rdfs:subClassOf :DFSFile ,
                           [ rdf:type owl:Restriction ;
+                            owl:onProperty :ctime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :dtime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] ,
+                          [ rdf:type owl:Restriction ;
                             owl:onProperty :filePath ;
                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onDataRange xsd:string
@@ -981,6 +1042,11 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                             owl:onDataRange xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
+                            owl:onProperty :mtime ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] ,
+                          [ rdf:type owl:Restriction ;
                             owl:onProperty :name ;
                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onDataRange xsd:string
@@ -989,22 +1055,12 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                             owl:onProperty :permission ;
                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onDataRange xsd:string
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :size ;
-                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:integer
                           ] .
 
 
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HDirectory
 :HDirectory rdf:type owl:Class ;
-            rdfs:subClassOf :HDFSFile ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :mtime ;
-                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onDataRange xsd:long
-                            ] .
+            rdfs:subClassOf :HDFSFile .
 
 
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#HFile
@@ -1026,6 +1082,11 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                        ] ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :replication ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:integer
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :size ;
                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                          owl:onDataRange xsd:integer
                        ] .
@@ -1124,6 +1185,12 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
            rdfs:comment "The id of Influence is optional" .
 
 
+###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Inheritance
+:Inheritance rdf:type owl:Class ;
+             rdfs:subClassOf :Delegation ;
+             rdfs:comment "Inheritance is used to express the delegation relationship between the parent process and child process, the child process performs activities on behalf of the parent process" .
+
+
 ###  http://www.semanticweb.org/administrator/ontologies/2019/3/untitled-ontology-2#Insert
 :Insert rdf:type owl:Class ;
         rdfs:subClassOf :RowOperation ,
@@ -1168,6 +1235,16 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                        owl:onDataRange xsd:dateTime
                      ] ,
                      [ rdf:type owl:Restriction ;
+                       owl:onProperty :finalStatus ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:string
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :jobType ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:string
+                     ] ,
+                     [ rdf:type owl:Restriction ;
                        owl:onProperty :name ;
                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                        owl:onDataRange xsd:string
@@ -1201,6 +1278,11 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                              owl:onProperty :startedTime ;
                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onDataRange xsd:dateTime
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :status ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
                            ] .
 
 
@@ -1760,12 +1842,17 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                         owl:onDataRange xsd:dateTime
                       ] ,
                       [ rdf:type owl:Restriction ;
+                        owl:onProperty :finalStatus ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
                         owl:onProperty :startedTime ;
                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                         owl:onDataRange xsd:dateTime
                       ] ,
                       [ rdf:type owl:Restriction ;
-                        owl:onProperty :type ;
+                        owl:onProperty :taskType ;
                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                         owl:onDataRange xsd:string
                       ] .
@@ -1798,6 +1885,11 @@ Due to the variety of data leakage methods, the extalbishment of data coexistenc
                               owl:onProperty :startedTime ;
                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                               owl:onDataRange xsd:dateTime
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :status ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
                             ] .
 
 
